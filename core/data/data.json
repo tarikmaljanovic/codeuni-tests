@@ -9,5 +9,14 @@
         "full_name": "John Doe",
         "email": "john@gmail.com",
         "password": "password12345"
+    },
+
+    "admin_data": {
+        "email": "tarikmaljanovic123@gmail.com",
+        "password": "123456789"
+    },
+
+    "lesson_content": {
+        "content": "This is test content"
     }
 }

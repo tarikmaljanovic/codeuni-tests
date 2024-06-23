@@ -8,6 +8,7 @@ const testData = JSON.parse(readFileSync(dataFilePath, "utf8"));
 
 export class DashboardPage extends BasePage {
     protected userFullName = By.xpath("/html/body/div/div[1]/div[2]/span");
+    protected courseButton = By.xpath("/html/body/div/div[5]/div[1]/a/div");
 
     constructor(driver: WebDriver) {
         super(driver);
@@ -19,5 +20,8 @@ export class DashboardPage extends BasePage {
         expect(userFullName).toMatch(testData.registration_data.full_name);
     }
 
+    async clickOnCourseButton() {
+        await this.waitAndClick(this.courseButton, 5000);
+    }
 
 }
