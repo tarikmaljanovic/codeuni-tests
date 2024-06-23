@@ -1,0 +1,13 @@
+{
+    "url": {
+        "landing": "http://localhost:3000"
+    },
+
+    "registration_data": {
+        "first_name": "John",
+        "last_name": "Doe",
+        "full_name": "John Doe",
+        "email": "john@gmail.com",
+        "password": "password12345"
+    }
+}
