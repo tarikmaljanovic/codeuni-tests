@@ -30,6 +30,10 @@ test('takeQuiz', async () => {
     await landingPage.clickLoginButton();
     await dashboardPage.clickOnCourseButton();
     await coursePage.clickLessonTitle();
+    await lessonPage.checkOption1();
+    await lessonPage.clickNextButton();
+    await lessonPage.checkOption2();
+    await lessonPage.clickFinishButton();
 
 
 }, 10000);
