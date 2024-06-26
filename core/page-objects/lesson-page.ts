@@ -12,7 +12,11 @@ export class LessonPage extends BasePage {
     protected userFullName = By.xpath("/html/body/div/div[1]/div[2]/span");
     protected logoutButton = By.xpath("/html/body/div/div[1]/div[2]/div/div[3]/span");
     protected courseContent = By.xpath("/html/body/div/div[4]/div/div[1]/p");
-    protected option1 = By.xpath("/html/body/div/div[4]/div/div[2]/form/div[2]");
+    protected option1 = By.xpath("/html/body/div/div[4]/div/div[2]/form/div[2]/input");
+    protected nextButton = By.xpath("/html/body/div/div[4]/div/div[2]/div/button");
+    protected option2 = By.xpath("/html/body/div/div[4]/div/div[2]/form/div/input");
+    protected finishButton = By.xpath("/html/body/div/div[4]/div/div[2]/div/button[2]");
+    protected asnwer = By.xpath("/html/body/div/div[4]/div/div[2]/p");
 
     constructor(driver: WebDriver) {
         super(driver);
@@ -41,10 +45,27 @@ export class LessonPage extends BasePage {
     }
 
     async checkOption1() {
-        const element = await this.findElementAndClick(this.option1);
+        const element = await this.waitForElement(this.option1, 5000);
+        await this.scriptClick(element);
     }
 
     async clickNextButton() {
-        
+        await this.waitAndClick(this.nextButton, 5000);
+    }
+
+    async checkOption2() {
+        const element = await this.waitForElement(this.option2, 5000);
+        await this.scriptClick(element);
+    }
+
+    async clickFinishButton() {
+        const element = await this.waitForElement(this.finishButton, 5000);
+        await this.scriptClick(element);
+    }
+
+    async checkAnser() {
+        await this.waitForElement(this.asnwer, 5000);
+        const answer = await this.driver.findElement(this.asnwer).getText();
+        expect(answer).toMatch(testData.lesson_content.answer);
     }
 }

@@ -17,6 +17,7 @@
     },
 
     "lesson_content": {
-        "content": "This is test content"
+        "content": "This is test content",
+        "answer": "Congratulations! You got all the answers right!"
     }
 }
